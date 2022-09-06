@@ -53,9 +53,8 @@
         android:id="@+id/playerChose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
@@ -79,20 +78,6 @@
             android:minHeight="60dp"
             android:text="Toanf đang chuẩn bị mua iPhone11" />
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="80dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="WHO WIN?"
-        android:textColor="@color/startBlue"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/thongBao"
