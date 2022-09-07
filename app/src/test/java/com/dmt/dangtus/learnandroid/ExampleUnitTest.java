@@ -1,4 +1,4 @@
-package com.dmt.dangtus.whowin;
+package com.dmt.dangtus.learnandroid;
 
 import org.junit.Test;
 
