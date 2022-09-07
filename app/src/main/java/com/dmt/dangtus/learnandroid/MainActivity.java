@@ -1,4 +1,4 @@
-package com.dmt.dangtus.whowin;
+package com.dmt.dangtus.learnandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar skPlayer1, skPlayer2, skPlayer3;
     RadioButton rbPlayer1Chose, rbPlayer2Chose, rbPlayer3Chose;
     ImageButton btnPlayButton;
-    TextView txtThongBao;
+    TextView txtThongBao, txtPoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         btnPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //kiem tra xem da chon player nao thang hay chua
+                //kiem tra xem da chon player nao WIN hay chua
                 if(rbPlayer1Chose.isChecked() || rbPlayer2Chose.isChecked() || rbPlayer3Chose.isChecked()) {
                     skPlayer1.setProgress(0);
                     skPlayer2.setProgress(0);
@@ -113,9 +113,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String kiemTraChose(RadioButton rbPlayerChose) {
+
+        //new chon dung thi point +10, sai thi point -5
+        int point = Integer.parseInt(txtPoint.getText().toString());
         if(rbPlayerChose.isChecked()) {
+            point += 10;
+            txtPoint.setText(point+"");
             return ", Bạn đoán giỏi quá nè è è è è è";
         } else {
+            point -= 5;
+            txtPoint.setText(point+"");
             return ", Bạn đoán sai rồi nhé é é é é é";
         }
     }
@@ -131,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnPlayButton = (ImageButton) findViewById(R.id.playButton);
         txtThongBao = (TextView) findViewById(R.id.thongBao);
+        txtPoint = (TextView) findViewById(R.id.point);
     }
 
     private void disableRadioButton() {
