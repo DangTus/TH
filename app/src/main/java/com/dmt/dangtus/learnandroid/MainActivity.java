@@ -5,25 +5,90 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnSwap;
+    ListView lvMonHoc;
+    ArrayList<String> monHoc;
+    TextView txtMonHoc;
+    Button btnThem, btnCapNhat;
+    int viTri = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnSwap = (Button) findViewById(R.id.buttonSwap);
+        anhXa();
 
-        btnSwap.setOnClickListener(new View.OnClickListener() {
+        monHoc = new ArrayList<>();
+        monHoc.add("Android");
+        monHoc.add("PHP");
+        monHoc.add("Java");
+        monHoc.add("ASP.NET");
+
+        final ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, monHoc);
+        lvMonHoc.setAdapter(arrayAdapter);
+
+        //click
+        lvMonHoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, MainActivity2.class);
-                startActivity(i);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                viTri = i;
+                txtMonHoc.setText(monHoc.get(i));
             }
         });
+
+        //long click
+        lvMonHoc.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                intent.putExtra("monHoc", monHoc.get(i));
+                startActivity(intent);
+
+                return false;
+            }
+        });
+
+        //them mon hoc moi
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                monHoc.add(txtMonHoc.getText().toString());
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
+
+        //cap nhat mon hoc hien tai
+        btnCapNhat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(viTri >= 0) {
+                    monHoc.set(viTri, txtMonHoc.getText().toString());
+                    arrayAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(MainActivity.this, "Vui lòng chọn môn học cần chỉnh sửa", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void anhXa() {
+        lvMonHoc = (ListView) findViewById(R.id.monHocListView);
+
+        btnThem = (Button) findViewById(R.id.themButton);
+        btnCapNhat = (Button) findViewById(R.id.capNhatButton);
+
+        txtMonHoc = (TextView) findViewById(R.id.monHocEditText);
     }
 }
