@@ -63,21 +63,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
-            android:text="Toanf đang học online" />
+            android:text="Player1" />
 
         <RadioButton
             android:id="@+id/player2Chose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="70dp"
-            android:text="Toanf đang chụp kỷ yếu" />
+            android:text="Player2" />
 
         <RadioButton
             android:id="@+id/player3Chose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="60dp"
-            android:text="Toanf đang chuẩn bị mua iPhone11" />
+            android:text="Player3" />
     </RadioGroup>
 
     <TextView

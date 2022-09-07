@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
                     //kiem tra xem player nao ve dich
                     String thongBao = "";
                     if(skPlayer1.getProgress() == skPlayer1.getMax()) {
-                        thongBao += rbPlayer1Chose.getText() + " đã về đích đầu tiên";
+                        thongBao += "\"" + rbPlayer1Chose.getText() + "\" đã về đích đầu tiên";
                         thongBao += kiemTraChose(rbPlayer1Chose);
                     } else if(skPlayer2.getProgress() == skPlayer2.getMax()) {
-                        thongBao += rbPlayer2Chose.getText() + " đã về đích đầu tiên";
+                        thongBao += "\"" + rbPlayer2Chose.getText() + "\" đã về đích đầu tiên";
                         thongBao += kiemTraChose(rbPlayer2Chose);
                     } else {
-                        thongBao += rbPlayer3Chose.getText() + " đã về đích đầu tiên";
+                        thongBao += "\"" + rbPlayer3Chose.getText() + "\" đã về đích đầu tiên";
                         thongBao += kiemTraChose(rbPlayer3Chose);
                     }
 
