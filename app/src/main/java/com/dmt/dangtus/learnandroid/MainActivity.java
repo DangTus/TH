@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ListView lvMonHoc;
     ArrayList<String> monHoc;
     TextView txtMonHoc;
-    Button btnThem, btnCapNhat;
+    Button btnThem, btnCapNhat, btnXoa;
     int viTri = -1;
 
     @Override
@@ -64,8 +64,15 @@ public class MainActivity extends AppCompatActivity {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                monHoc.add(txtMonHoc.getText().toString());
-                arrayAdapter.notifyDataSetChanged();
+                String monHocAdd = txtMonHoc.getText().toString();
+                if(monHocAdd.equals("")) {
+                    Toast.makeText(MainActivity.this, "Vui lòng nhập môn học cần thêm", Toast.LENGTH_SHORT).show();
+                } else {
+                    monHoc.add(monHocAdd);
+                    arrayAdapter.notifyDataSetChanged();
+
+                    txtMonHoc.setText("");
+                }
             }
         });
 
@@ -76,8 +83,27 @@ public class MainActivity extends AppCompatActivity {
                 if(viTri >= 0) {
                     monHoc.set(viTri, txtMonHoc.getText().toString());
                     arrayAdapter.notifyDataSetChanged();
+
+                    viTri = -1;
+                    txtMonHoc.setText("");
                 } else {
                     Toast.makeText(MainActivity.this, "Vui lòng chọn môn học cần chỉnh sửa", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //xoa nhat mon hoc hien tai
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(viTri >= 0) {
+                    monHoc.remove(viTri);
+                    arrayAdapter.notifyDataSetChanged();
+
+                    viTri = -1;
+                    txtMonHoc.setText("");
+                } else {
+                    Toast.makeText(MainActivity.this, "Vui lòng chọn môn học cần xóa", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -88,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnThem = (Button) findViewById(R.id.themButton);
         btnCapNhat = (Button) findViewById(R.id.capNhatButton);
+        btnXoa = (Button) findViewById(R.id.xoaButton);
 
         txtMonHoc = (TextView) findViewById(R.id.monHocEditText);
     }

@@ -68,18 +68,37 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/background_button"
         android:text="Thêm"
+        android:textColor="#fff"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monHocEditText" />
 
     <Button
-        android:id="@+id/capNhatButton"
+        android:id="@+id/xoaButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:text="Cập nhật"
+        android:background="@drawable/background_button"
+        android:text="xóa"
+        android:textColor="#fff"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monHocEditText" />
+
+    <Button
+        android:id="@+id/capNhatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_button"
+        android:text="cập nhật"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/xoaButton"
+        app:layout_constraintStart_toEndOf="@+id/themButton"
         app:layout_constraintTop_toBottomOf="@+id/monHocEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
