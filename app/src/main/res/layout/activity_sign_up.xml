@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <View
-        android:id="@+id/topView"
+        android:id="@+id/topView2"
         android:layout_width="wrap_content"
         android:layout_height="130dp"
         android:background="@color/colorPrimary"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -32,16 +32,35 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:background="@drawable/ic_wave"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topView" />
+        app:layout_constraintTop_toBottomOf="@+id/topView2" />
 
     <EditText
         android:id="@+id/userNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/background_input_text"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="User name"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullNameEditText" />
+
+    <EditText
+        android:id="@+id/fullNameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -50,14 +69,13 @@
         android:background="@drawable/background_input_text"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="User name"
+        android:hint="Full name"
         android:inputType="textPersonName"
-        android:text="2050531200316"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -71,73 +89,79 @@
         android:gravity="center_horizontal"
         android:hint="Password"
         android:inputType="textPassword"
-        android:text="dangvanhoaitu"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
 
-    <Button
-        android:id="@+id/loginButton"
+    <EditText
+        android:id="@+id/confirmPasswordEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
-        android:background="@drawable/background_button_signup"
-        android:text="login"
-        android:textColor="#fff"
-        android:textSize="20sp"
+        android:background="@drawable/background_input_text"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
-        android:text="Chưa có tài khoản ư?"
-        android:textColor="#000"
-        android:textSize="15sp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/background_button_signup"
+        android:text="sign up"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordEditText" />
 
     <TextView
-        android:id="@+id/signUpLayout"
+        android:id="@+id/loginLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text=" Tạo tài khoản"
+        android:text=" Đăng nhập"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/signUpButton" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="0dp"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="SIGN UP"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/topView"
-        app:layout_constraintEnd_toEndOf="@+id/topView"
-        app:layout_constraintStart_toStartOf="@+id/topView" />
+        app:layout_constraintBottom_toBottomOf="@+id/topView2"
+        app:layout_constraintEnd_toEndOf="@+id/topView2"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:background="@null"
-        android:id="@+id/eyeIMB"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="center"
-        app:layout_constraintBottom_toBottomOf="@+id/passwordEditText"
-        app:layout_constraintEnd_toEndOf="@+id/passwordEditText"
-        app:layout_constraintTop_toTopOf="@+id/passwordEditText"
-        app:srcCompat="@drawable/ic_eye" />
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Có tài khoản rồi ư?"
+        android:textColor="#000"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
