@@ -42,22 +42,36 @@ public class FootballPlayerAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = layoutInflater.inflate(layout, null);
+        ViewHolder holder;
 
-        //anh xa
-        TextView txtName = (TextView) view.findViewById(R.id.nameTextView);
-        TextView txtDescribe = (TextView) view.findViewById(R.id.clubTextView);
-        TextView txtPrice = (TextView) view.findViewById(R.id.priceTextView);
-        ImageView imvImage = (ImageView) view.findViewById(R.id.avataIMV);
+        if(view == null) {
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = layoutInflater.inflate(layout, null);
+
+            holder = new ViewHolder();
+            //anh xa
+            holder.txtName = (TextView) view.findViewById(R.id.nameTextView);
+            holder.txtDescribe = (TextView) view.findViewById(R.id.clubTextView);
+            holder.txtPrice = (TextView) view.findViewById(R.id.priceTextView);
+            holder.imvImage = (ImageView) view.findViewById(R.id.avataIMV);
+
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
 
         //gan gia tri
         FootballPlayer footballPlayer = footballPlayerList.get(i);
-        txtName.setText(footballPlayer.getName());
-        txtDescribe.setText(footballPlayer.getClub());
-        txtPrice.setText(footballPlayer.getPrice() + " £");
-        imvImage.setImageResource(footballPlayer.getImage());
+        holder.txtName.setText(footballPlayer.getName());
+        holder.txtDescribe.setText(footballPlayer.getClub());
+        holder.txtPrice.setText(footballPlayer.getPrice() + " £");
+        holder.imvImage.setImageResource(footballPlayer.getImage());
 
         return view;
+    }
+
+    private class ViewHolder {
+        ImageView imvImage;
+        TextView txtName, txtDescribe, txtPrice;
     }
 }

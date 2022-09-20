@@ -1,8 +1,7 @@
 package model;
 
 public class FootballPlayer {
-    private String name;
-    private String club;
+    private String name, club;
     private int image;
     private double price;
 
