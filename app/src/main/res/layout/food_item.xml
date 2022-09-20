@@ -19,7 +19,9 @@
             android:layout_width="0dp"
             android:layout_height="144dp"
             android:layout_weight="3"
-            app:srcCompat="@drawable/image_food_1" />
+            app:srcCompat="@drawable/image_food_1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -27,8 +29,6 @@
             android:layout_weight="5"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:weightSum="2">
 
             <TextView
@@ -57,7 +57,8 @@
             android:text="6$"
             android:textColor="#4e5a82"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="0dp"
