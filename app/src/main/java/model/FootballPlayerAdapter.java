@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.dmt.dangtus.learnandroid.MainActivity;
 import com.dmt.dangtus.learnandroid.R;
 
 import java.util.List;
@@ -73,5 +76,6 @@ public class FootballPlayerAdapter extends BaseAdapter {
     private class ViewHolder {
         ImageView imvImage;
         TextView txtName, txtDescribe, txtPrice;
+        Button btnButton;
     }
 }

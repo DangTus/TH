@@ -1,6 +1,8 @@
 package model;
 
-public class FootballPlayer {
+import java.io.Serializable;
+
+public class FootballPlayer implements Serializable {
     private String name, club;
     private int image;
     private double price;

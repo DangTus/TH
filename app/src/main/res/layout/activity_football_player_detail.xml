@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/avataDetailIMV"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_weight="4"
@@ -65,7 +65,7 @@
             android:paddingLeft="16dp">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/nameDetailTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cristiano Ronaldo"
@@ -74,7 +74,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/clubDetailTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Manchester United"

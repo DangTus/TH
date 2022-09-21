@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this, FootballPlayerDetail.class);
+                intent.putExtra("duLieu", footballPlayerArrayList.get(i));
                 startActivity(intent);
             }
         });
