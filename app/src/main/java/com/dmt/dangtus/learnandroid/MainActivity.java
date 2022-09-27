@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (!edUserName.getText().toString().trim().equals("2050531200316") || !edPassword.getText().toString().trim().equals("dangvanhoaitu")) {
                     Toast.makeText(MainActivity.this, "Tài khoản hoặc mật khẩu của bạn không đúng. Vui lòng đăng nhập lại!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intentLogin = new Intent(MainActivity.this, ProfileActivity.class);
+                    Intent intentLogin = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intentLogin);
                 }
             }

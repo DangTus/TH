@@ -6,13 +6,9 @@
 
     <item android:id="@+id/action_listview"
         android:icon="@drawable/ic_listview"
-        android:title="List view" />
+        android:title="List view"/>
 
     <item android:id="@+id/action_profile"
         android:icon="@drawable/ic_user"
-        android:title="Profile" />
-
-    <item android:id="@+id/action_setting"
-        android:icon="@drawable/ic_setting"
-        android:title="Seting" />
+        android:title="Profile"/>
 </menu>

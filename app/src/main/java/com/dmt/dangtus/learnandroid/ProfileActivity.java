@@ -8,13 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -37,8 +32,6 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.action_listview:
                         break;
                     case R.id.action_profile:
-                        break;
-                    case R.id.action_setting:
                         break;
                 }
                 return true;
