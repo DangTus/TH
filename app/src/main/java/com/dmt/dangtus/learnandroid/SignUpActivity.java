@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,11 +56,11 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean checkEmpty(EditText edtDuLieu) {
         if(edtDuLieu.getText().toString().trim().isEmpty()) {
             edtDuLieu.setError("Không được để trống ô này");
-            edtDuLieu.setBackgroundResource(R.drawable.background_input_text_error);
+            setBgError(edtDuLieu, true);
             return true;
         } else {
             edtDuLieu.setError(null);
-            edtDuLieu.setBackgroundResource(R.drawable.background_input_text);
+            setBgError(edtDuLieu, false);
             return false;
         }
     }
@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
         if(!checkEmpty(edtUserName)) {
             if(edtUserName.getText().toString().trim().length() < 8) {
                 edtUserName.setError("Vui lòng nhập đủ 8 kí tự");
-                edtUserName.setBackgroundResource(R.drawable.background_input_text_error);
+                setBgError(edtUserName, true);
             }
         }
     }
@@ -78,7 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
         if(!checkEmpty(edtPassword)) {
             if(edtPassword.getText().toString().trim().length() < 8) {
                 edtPassword.setError("Vui lòng nhập đủ 8 kí tự");
-                edtPassword.setBackgroundResource(R.drawable.background_input_text_error);
+                setBgError(edtPassword, true);
             }
         }
     }
@@ -89,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
             String passwordConfirm = edtEdtPasswordConfirm.getText().toString().trim();
             if(!password.equals(passwordConfirm)) {
                 edtEdtPasswordConfirm.setError("Mật khẩu bạn vừa nhập không đúng");
-                edtEdtPasswordConfirm.setBackgroundResource(R.drawable.background_input_text_error);
+                setBgError(edtEdtPasswordConfirm, true);
             }
         }
     }
@@ -129,13 +129,24 @@ public class SignUpActivity extends AppCompatActivity {
         alertBuilder.show();
     }
 
+    private void setBgError(EditText edtData, boolean error) {
+        GradientDrawable drawable = (GradientDrawable) edtData.getBackground();
+        drawable.setColor(Color.parseColor("#e3f2fd"));
+
+        if(error) {
+            drawable.setStroke(3, Color.parseColor("#ff0000"));
+        } else {
+            drawable.setStroke(0, Color.parseColor("#ff0000"));
+        }
+    }
+
     private void anhXa() {
         txtLogin = (TextView) findViewById(R.id.loginLayout);
         btnSignUp = (Button) findViewById(R.id.signUpButton);
 
-        edtName = (EditText) findViewById(R.id.fullNameEditText);
-        edtUserName = (EditText) findViewById(R.id.userNameEditText);
-        edtPassword = (EditText) findViewById(R.id.passwordEditText);
-        edtEdtPasswordConfirm = (EditText) findViewById(R.id.confirmPasswordEditText);
+        edtName                 = (EditText) findViewById(R.id.fullNameEditText);           setBgError(edtName, false);
+        edtUserName             = (EditText) findViewById(R.id.userNameEditText);           setBgError(edtUserName, false);
+        edtPassword             = (EditText) findViewById(R.id.passwordEditText);           setBgError(edtPassword, false);
+        edtEdtPasswordConfirm   = (EditText) findViewById(R.id.confirmPasswordEditText);    setBgError(edtEdtPasswordConfirm, false);
     }
 }

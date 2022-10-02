@@ -8,7 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#3f51b5</color>
-    <color name="colorPrimaryLight">#c5cae9</color>
-    <color name="grayLight">#DCDCDC</color>
+    <color name="colorPrimary">#2196f3</color>
+    <color name="colorPrimary200">#90caf9</color>
+    <color name="colorPrimary50">#e3f2fd</color>
+
+    <color name="gray">#808080</color>
+    <color name="grayBackground">#f8f8f8</color>
+<!--    <color name="grayGainsboro">#DCDCDC</color>-->
+    <color name="grayText">#C0C0C0</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

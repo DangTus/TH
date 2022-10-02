@@ -3,6 +3,8 @@ package com.dmt.dangtus.learnandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -76,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void anhXa() {
         txtSignUp = (TextView) findViewById(R.id.signUpLayout);
+
         btnLogin = (Button) findViewById(R.id.loginButton);
+        GradientDrawable drawable = (GradientDrawable) btnLogin.getBackground();
+        drawable.setColor(Color.parseColor("#2196f3"));
+        drawable.setStroke(0, Color.parseColor("#ff0000"));
 
         edUserName = (EditText) findViewById(R.id.userNameEditText);
         edPassword = (EditText) findViewById(R.id.passwordEditText);

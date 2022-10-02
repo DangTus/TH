@@ -4,14 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.dmt.dangtus.learnandroid.fragment.ViewPagerAdapter;
+import com.dmt.dangtus.learnandroid.model.FootballPlayer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class HomeActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class HomeActivity extends AppCompatActivity implements FootballPlayerTransmission {
 
     private BottomNavigationView bottomNavigation;
     private ViewPager2 homeViewPager;
@@ -31,19 +41,20 @@ public class HomeActivity extends AppCompatActivity {
         homeViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        bottomNavigation.getMenu().findItem(R.id.action_home).setChecked(true);
-                        break;
+            switch (position) {
+                case 0:
+                    bottomNavigation.getMenu().findItem(R.id.action_home).setChecked(true);
+                    break;
 
-                    case 1:
-                        bottomNavigation.getMenu().findItem(R.id.action_listview).setChecked(true);
-                        break;
+                case 1:
+                    bottomNavigation.getMenu().findItem(R.id.action_listview).setChecked(true);
+                    break;
 
-                    case 2:
-                        bottomNavigation.getMenu().findItem(R.id.action_profile).setChecked(true);
-                        break;
-                }
+                case 2:
+                    bottomNavigation.getMenu().findItem(R.id.action_profile).setChecked(true);
+                    break;
+            }
+
             }
         });
 
@@ -72,5 +83,13 @@ public class HomeActivity extends AppCompatActivity {
     private void anhXa() {
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottomNav);
         homeViewPager = (ViewPager2) findViewById(R.id.viewPagerHome);
+    }
+
+
+    @Override
+    public void DataFootballPlayer(FootballPlayer footballPlayer) {
+        Intent intent = new Intent(HomeActivity.this, FootballPlayerDetail.class);
+//        intent.putExtra("duLieu", footballPlayer);
+        startActivity(intent);
     }
 }
