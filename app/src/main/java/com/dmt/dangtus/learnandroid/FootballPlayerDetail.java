@@ -1,7 +1,6 @@
 package com.dmt.dangtus.learnandroid;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;

@@ -5,21 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.dmt.dangtus.learnandroid.fragment.ViewPagerAdapter;
 import com.dmt.dangtus.learnandroid.model.FootballPlayer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.io.Serializable;
 
 public class HomeActivity extends AppCompatActivity implements FootballPlayerTransmission {
 
