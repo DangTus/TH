@@ -27,12 +27,12 @@ public class ListViewFragment extends ListFragment {
 
     public ListViewFragment() {
         arrayList = new ArrayList<>();
-        arrayList.add(new FootballPlayer(R.drawable.img_avata, "Đặng Văn Hoài Tú", "2050531200316", 10000, "VNĐ", 1.1));
-        arrayList.add(new FootballPlayer(R.drawable.img_lionel_bestoanf, "Lionel BesToanf", "Barcelona", 999.9, "triệu USD", 5.9));
-        arrayList.add(new FootballPlayer(R.drawable.img_harry_maguire, "Harry Maguire", "Manchester United", 87, "triệu Euro", 2));
-        arrayList.add(new FootballPlayer(R.drawable.img_cristiano_ronaldo, "Cristiano Ronaldo", "Manchester United", 21.4, "triệu bảng Anh", 4));
-        arrayList.add(new FootballPlayer(R.drawable.img_lionel_messi, "Lionel Messi", "Paris Saint-Germain", 55, "triệu USD", 4));
-        arrayList.add(new FootballPlayer(R.drawable.img_kylian_mbappe, "Kylian Mbappé", "Paris Saint-Germain", 145, "triệu Euro", 5));
+        arrayList.add(new FootballPlayer(R.drawable.img_avata,                  "Đặng Văn Hoài Tú",         "2050531200316",        1,      1, false));
+        arrayList.add(new FootballPlayer(R.drawable.img_lionel_bestoanf,        "Lionel BesToanf",          "Barcelona",            999999999,   6, true));
+        arrayList.add(new FootballPlayer(R.drawable.img_harry_maguire,          "Harry Maguire",            "Manchester United",    84930664,  2, false));
+    arrayList.add(new FootballPlayer(R.drawable.img_cristiano_ronaldo,          "Cristiano Ronaldo",        "Manchester United",    23461095.1,  4, true));
+    arrayList.add(new FootballPlayer(R.drawable.img_lionel_messi,               "Lionel Messi",             "Paris Saint-Germain",  55000000,     4, false));
+        arrayList.add(new FootballPlayer(R.drawable.img_kylian_mbappe_lottin,   "Kylian Mbappe Lottin",     "Paris Saint-Germain",  141546100, 5, true));
     }
 
     @Nullable

@@ -3,17 +3,18 @@ package com.dmt.dangtus.learnandroid.model;
 import java.io.Serializable;
 
 public class FootballPlayer implements Serializable {
-    private String name, club, unit;
-    private int image;
-    private double price, rating;
+    private String name, club;
+    private int image, skill;
+    private double price;
+    private boolean like;
 
-    public FootballPlayer(int image, String name, String club, double price, String unit, double rating) {
+    public FootballPlayer(int image, String name, String club, double price, int skill, boolean like) {
         this.name = name;
         this.club = club;
-        this.unit = unit;
         this.image = image;
         this.price = price;
-        this.rating = rating;
+        this.skill = skill;
+        this.like = like;
     }
 
     public String getName() {
@@ -32,14 +33,6 @@ public class FootballPlayer implements Serializable {
         this.club = club;
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
     public int getImage() {
         return image;
     }
@@ -56,11 +49,19 @@ public class FootballPlayer implements Serializable {
         this.price = price;
     }
 
-    public double getRating() {
-        return rating;
+    public int getSkill() {
+        return skill;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public void setRating(int skill) {
+        this.skill = skill;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
     }
 }

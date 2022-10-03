@@ -5,17 +5,23 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dmt.dangtus.learnandroid.model.FootballPlayer;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class FootballPlayerDetail extends AppCompatActivity {
 
-    TextView txtName, txtClub, txtRating, txtQuantity, txtPrice;
+    TextView txtName, txtClub, txtQuantity, txtPrice;
     ImageView imvAvata;
     Button btnBuyProduct;
+    RatingBar rtbSkill;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +35,26 @@ public class FootballPlayerDetail extends AppCompatActivity {
         if(footballPlayer != null) {
             txtName.setText(footballPlayer.getName());
             txtClub.setText(footballPlayer.getClub());
-            txtRating.setText(footballPlayer.getRating() + "");
-            txtPrice.setText(footballPlayer.getPrice() + "");
+
+            double money = footballPlayer.getPrice();
+            DecimalFormat hehe = new DecimalFormat("#,##0"); //#,##0.000
+            txtPrice.setText(hehe.format(money) + "");
 
             imvAvata.setImageResource(footballPlayer.getImage());
+
+            rtbSkill.setRating(footballPlayer.getSkill());
         }
     }
 
     private void anhXa() {
         txtName = (TextView) findViewById(R.id.nameTextView);
         txtClub = (TextView) findViewById(R.id.club);
-        txtRating = (TextView) findViewById(R.id.ratingTextView);
         txtPrice = (TextView) findViewById(R.id.price);
         txtQuantity = (TextView) findViewById(R.id.quantity);
-
         imvAvata = (ImageView) findViewById(R.id.avataIMV);
 
         btnBuyProduct = (Button) findViewById(R.id.buyProductButton);
+
+        rtbSkill = (RatingBar) findViewById(R.id.skillRatingBar);
     }
 }

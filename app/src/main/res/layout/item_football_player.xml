@@ -9,10 +9,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="52dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="32dp"
         android:background="@drawable/background_radius_15"
         android:backgroundTint="#fff">
 
@@ -20,16 +18,14 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="10">
+            android:weightSum="10"
+            android:padding="16dp">
 
             <ImageView
                 android:id="@+id/avataIMV"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
                 app:srcCompat="@drawable/img_cristiano_ronaldo" />
 
             <LinearLayout
@@ -39,8 +35,7 @@
                 android:layout_weight="7"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp">
+                android:paddingLeft="16dp">
 
                 <TextView
                     android:id="@+id/nameTextView"
@@ -67,20 +62,6 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
-
-                <RatingBar
-                    android:id="@+id/playerRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:progressTint="@color/colorPrimary"
-                    android:secondaryProgressTint="@color/colorPrimary"
-                    android:numStars="6"
-                    android:rating="1.1"
-                    android:stepSize="0.1"
-                    android:isIndicator="true"
-                    android:layout_gravity="right"
-                    android:layout_margin="16dp"
-                    style="?android:attr/ratingBarStyleSmall"/>
 
             </LinearLayout>
 

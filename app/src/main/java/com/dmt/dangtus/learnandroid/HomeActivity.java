@@ -87,7 +87,7 @@ public class HomeActivity extends AppCompatActivity implements FootballPlayerTra
     @Override
     public void DataFootballPlayer(FootballPlayer footballPlayer) {
         Intent intent = new Intent(HomeActivity.this, FootballPlayerDetail.class);
-//        intent.putExtra("duLieu", footballPlayer);
+        intent.putExtra("duLieu", footballPlayer);
         startActivity(intent);
     }
 }

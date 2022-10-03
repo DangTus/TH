@@ -18,6 +18,7 @@ import com.dmt.dangtus.learnandroid.FootballPlayerTransmission;
 import com.dmt.dangtus.learnandroid.HomeActivity;
 import com.dmt.dangtus.learnandroid.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import com.dmt.dangtus.learnandroid.model.FootballPlayer;
@@ -63,7 +64,6 @@ public class FootballPlayerAdapter extends BaseAdapter {
             holder.txtDescribe = (TextView) view.findViewById(R.id.clubTextView);
             holder.txtPrice = (TextView) view.findViewById(R.id.priceTextView);
             holder.imvImage = (ImageView) view.findViewById(R.id.avataIMV);
-            holder.ratingPlayer = (RatingBar) view.findViewById(R.id.playerRatingBar);
 
             view.setTag(holder);
         } else {
@@ -74,9 +74,12 @@ public class FootballPlayerAdapter extends BaseAdapter {
         FootballPlayer footballPlayer = footballPlayerList.get(i);
         holder.txtName.setText(footballPlayer.getName());
         holder.txtDescribe.setText(footballPlayer.getClub());
-        holder.txtPrice.setText(footballPlayer.getPrice() + " " + footballPlayer.getUnit());
+
+        double money = footballPlayer.getPrice();
+        DecimalFormat hehe = new DecimalFormat("#,##0"); //#,##0.000
+        holder.txtPrice.setText("$" + hehe.format(money));
+
         holder.imvImage.setImageResource(footballPlayer.getImage());
-        holder.ratingPlayer.setRating((float)footballPlayer.getRating());
 
         return view;
     }
@@ -84,7 +87,5 @@ public class FootballPlayerAdapter extends BaseAdapter {
     private class ViewHolder {
         ImageView imvImage;
         TextView txtName, txtDescribe, txtPrice;
-        Button btnButton;
-        RatingBar ratingPlayer;
     }
 }
