@@ -54,7 +54,6 @@ public class HomeActivity extends AppCompatActivity implements FootballPlayerTra
                     bottomNavigation.getMenu().findItem(R.id.action_profile).setChecked(true);
                     break;
             }
-
             }
         });
 
@@ -84,7 +83,6 @@ public class HomeActivity extends AppCompatActivity implements FootballPlayerTra
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottomNav);
         homeViewPager = (ViewPager2) findViewById(R.id.viewPagerHome);
     }
-
 
     @Override
     public void DataFootballPlayer(FootballPlayer footballPlayer) {

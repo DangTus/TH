@@ -13,6 +13,10 @@
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_circle.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_content_detail.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_detail_product.xml" value="0.2395" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_gradient_horitional.xml" value="0.2395" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_gradient_horizontal.xml" value="0.2395" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_gradient_vertical.xml" value="0.2395" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_header_detail.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_input_text.xml" value="0.2555" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_input_text_error.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/background_product_detail_quantity_button.xml" value="0.2395" />
@@ -25,6 +29,7 @@
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/follow_button_background.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_baseline_phone_android_24.xml" value="0.2395" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_buynow.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_eye.xml" value="0.2535" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_eye_hide.xml" value="0.2395" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.245" />
