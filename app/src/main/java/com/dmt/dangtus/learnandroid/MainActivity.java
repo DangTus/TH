@@ -1,90 +1,68 @@
 package com.dmt.dangtus.learnandroid;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.Selection;
+import android.provider.ContactsContract;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edUserName, edPassword;
-    TextView txtSignUp;
-    Button btnLogin;
-    ImageButton imbEye;
+    private ListView lvDanhBa;
+    private ContentResolver resolver;
+    private List<String> danhBaList = new ArrayList<>();
+    private List<Long> idList = new ArrayList<>();
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        anhXa();
+        lvDanhBa = (ListView) findViewById(R.id.danhBaListView);
 
-        txtSignUp.setOnClickListener(new View.OnClickListener() {
+        if(checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[] {Manifest.permission.READ_CONTACTS}, 100);
+        }
+
+        resolver = getContentResolver();
+
+        //select
+        Cursor cursor = resolver.query(ContactsContract.Contacts.CONTENT_URI,
+                new String[]{ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts._ID},
+                null, null, null);
+        while(cursor.moveToNext()) {
+            danhBaList.add(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
+            idList.add(cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts._ID)));
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, danhBaList);
+        lvDanhBa.setAdapter(adapter);
+
+        //set su kien khi click vao list view
+        lvDanhBa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                long id = idList.get(i);
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
             }
         });
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(edUserName.getText().toString().trim().isEmpty() || edPassword.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ", Toast.LENGTH_SHORT).show();
-                } else if (!edUserName.getText().toString().trim().equals("2050531200316") || !edPassword.getText().toString().trim().equals("dangvanhoaitu")) {
-                    Toast.makeText(MainActivity.this, "Tài khoản hoặc mật khẩu của bạn không đúng. Vui lòng đăng nhập lại!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intentLogin = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(intentLogin);
-                }
-            }
-        });
-
-        imbEye.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if((Integer) imbEye.getTag() == R.drawable.ic_eye_hide) {
-                    imbEye.setImageResource(R.drawable.ic_eye);
-                    imbEye.setTag(R.drawable.ic_eye);
-
-                    //129 la kieu password
-                    edPassword.setInputType(129);
-                } else if ((Integer) imbEye.getTag() == R.drawable.ic_eye) {
-                    imbEye.setImageResource(R.drawable.ic_eye_hide);
-                    imbEye.setTag(R.drawable.ic_eye_hide);
-
-                    edPassword.setInputType(InputType.TYPE_CLASS_TEXT);
-                }
-
-                //dua vi tri con tro ve phia cuoi van ban
-                int position = edPassword.length();
-                Editable etext = edPassword.getText();
-                Selection.setSelection(etext, position);
-            }
-        });
-    }
-
-    private void anhXa() {
-        txtSignUp = (TextView) findViewById(R.id.signUpLayout);
-
-        btnLogin = (Button) findViewById(R.id.loginButton);
-
-        edUserName = (EditText) findViewById(R.id.userNameEditText);
-        edPassword = (EditText) findViewById(R.id.passwordEditText);
-
-        imbEye = (ImageButton) findViewById(R.id.eyeIMB);
-        imbEye.setTag(R.drawable.ic_eye);
     }
 }
