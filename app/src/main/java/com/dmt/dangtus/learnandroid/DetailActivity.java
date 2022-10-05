@@ -24,6 +24,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         txtSDT = (TextView) findViewById(R.id.sdt);
+        txtName = (TextView) findViewById(R.id.name);
 
         Intent intent = getIntent();
         long id = intent.getLongExtra("id", 0);
@@ -31,15 +32,18 @@ public class DetailActivity extends AppCompatActivity {
             resolver = getContentResolver();
             //select
             Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                    new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER},
+                    new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME},
                     ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
                     new String[]{String.valueOf(id)}, null);
             String phone = "";
+            String name = "";
             while(cursor.moveToNext()) {
                 phone += cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)) + " | ";
+                name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             }
 
             txtSDT.setText(phone);
+            txtName.setText(name);
         }
     }
 }
