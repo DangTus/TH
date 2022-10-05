@@ -41,20 +41,20 @@ public class FootballPlayer implements Serializable {
         this.image = image;
     }
 
+    public int getSkill() {
+        return skill;
+    }
+
+    public void setSkill(int skill) {
+        this.skill = skill;
+    }
+
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getSkill() {
-        return skill;
-    }
-
-    public void setRating(int skill) {
-        this.skill = skill;
     }
 
     public boolean isLike() {

@@ -80,9 +80,6 @@ public class MainActivity extends AppCompatActivity {
         txtSignUp = (TextView) findViewById(R.id.signUpLayout);
 
         btnLogin = (Button) findViewById(R.id.loginButton);
-        GradientDrawable drawable = (GradientDrawable) btnLogin.getBackground();
-        drawable.setColor(Color.parseColor("#2196f3"));
-        drawable.setStroke(0, Color.parseColor("#ff0000"));
 
         edUserName = (EditText) findViewById(R.id.userNameEditText);
         edPassword = (EditText) findViewById(R.id.passwordEditText);
