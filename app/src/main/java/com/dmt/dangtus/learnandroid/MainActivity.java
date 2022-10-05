@@ -3,6 +3,7 @@ package com.dmt.dangtus.learnandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.text.InputType;
 import android.text.Selection;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     TextView txtSignUp;
     Button btnLogin;
     ImageButton imbEye;
+    CheckBox cbRemember;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,24 +34,43 @@ public class MainActivity extends AppCompatActivity {
 
         anhXa();
 
+        sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        //gan gia tri sharedPreferences
+        edUserName.setText(sharedPreferences.getString("userName", ""));
+        edPassword.setText(sharedPreferences.getString("password", ""));
+        cbRemember.setChecked(sharedPreferences.getBoolean("remember", false));
+
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-                startActivity(intent);
+
             }
         });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edUserName.getText().toString().trim().isEmpty() || edPassword.getText().toString().trim().isEmpty()) {
+                String userName = edUserName.getText().toString().trim();
+                String password = edPassword.getText().toString().trim();
+
+                if(userName.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ", Toast.LENGTH_SHORT).show();
-                } else if (!edUserName.getText().toString().trim().equals("2050531200316") || !edPassword.getText().toString().trim().equals("dangvanhoaitu")) {
+                } else if (!userName.equals("admin") || !password.equals("admin")) {
                     Toast.makeText(MainActivity.this, "Tài khoản hoặc mật khẩu của bạn không đúng. Vui lòng đăng nhập lại!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intentLogin = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(intentLogin);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    if(cbRemember.isChecked()) {;
+                        editor.putString("userName", userName);
+                        editor.putString("password", password);
+                        editor.putBoolean("remember", true);
+                        editor.commit();
+                    } else {
+                        editor.remove("userName");
+                        editor.remove("password");
+                        editor.remove("remember");
+                        editor.commit();
+                    }
+                    Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -86,5 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         imbEye = (ImageButton) findViewById(R.id.eyeIMB);
         imbEye.setTag(R.drawable.ic_eye);
+
+        cbRemember = (CheckBox) findViewById(R.id.rememberCheckBox);
     }
 }
