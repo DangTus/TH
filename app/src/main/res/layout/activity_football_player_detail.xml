@@ -174,8 +174,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@color/gray"
-                        android:layout_marginLeft="16dp"
-                        android:layout_below="@id/club" />
+                        android:layout_marginLeft="16dp" />
 
                 </LinearLayout>
 
