@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
 
-import com.dmt.dangtus.learnandroid.FootballPlayerTransmission;
+import com.dmt.dangtus.learnandroid.HomeActivityInterface;
 import com.dmt.dangtus.learnandroid.R;
 import com.dmt.dangtus.learnandroid.adapter.FootballPlayerAdapter;
 import com.dmt.dangtus.learnandroid.model.FootballPlayer;
@@ -21,7 +21,7 @@ public class ListViewFragment extends ListFragment {
 
     ArrayList<FootballPlayer> arrayList;
     FootballPlayerAdapter listAdapter;
-    private FootballPlayerTransmission footballPlayerTransmission;
+    private HomeActivityInterface homeActivityInterface;
 
     public ListViewFragment() {
         arrayList = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ListViewFragment extends ListFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        footballPlayerTransmission = (FootballPlayerTransmission) getActivity();
+        homeActivityInterface = (HomeActivityInterface) getActivity();
 
         listAdapter = new FootballPlayerAdapter(getActivity(), R.layout.item_football_player, arrayList);
         setListAdapter(listAdapter);
@@ -48,6 +48,6 @@ public class ListViewFragment extends ListFragment {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        footballPlayerTransmission.DataFootballPlayer(arrayList.get(position));
+        homeActivityInterface.FootballPlayerDetail(arrayList.get(position));
     }
 }

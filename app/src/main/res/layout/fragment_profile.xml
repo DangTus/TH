@@ -18,51 +18,57 @@
                 android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="@drawable/background_gradient_vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:id="@+id/header"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="270dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="335dp"
+                    android:background="@drawable/background_gradient_vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:srcCompat="@drawable/img_avata" />
+                    <LinearLayout
+                        android:id="@+id/header"
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="Đặng Văn Hoài Tú"
-                        android:textColor="#fff"
-                        android:textSize="21sp"
-                        android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:srcCompat="@drawable/img_avata" />
 
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2050531200316"
-                        android:textColor="#fff"
-                        android:textSize="21sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Đặng Văn Hoài Tú"
+                            android:textColor="#fff"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2050531200316"
+                            android:textColor="#fff"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
 
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/header"
-                    android:background="@drawable/ic_ware" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/header"
+                        android:background="@drawable/ic_ware"/>
+
+                </RelativeLayout>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="380dp"
@@ -77,12 +83,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:layout_marginHorizontal="25dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -109,7 +114,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -138,9 +143,8 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -179,7 +183,7 @@
                 android:layout_marginEnd="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
                 <LinearLayout
@@ -269,23 +273,6 @@
 
                 </LinearLayout>
             </LinearLayout>
-
-            <Button
-                android:id="@+id/logOutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="100dp"
-                android:background="@drawable/background_radius_15"
-                android:text="log out"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,20 +4,29 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.dmt.dangtus.learnandroid.fragment.ViewPagerAdapter;
 import com.dmt.dangtus.learnandroid.model.FootballPlayer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class HomeActivity extends AppCompatActivity implements FootballPlayerTransmission {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class HomeActivity extends AppCompatActivity implements HomeActivityInterface {
 
     private BottomNavigationView bottomNavigation;
     private ViewPager2 homeViewPager;
     private ViewPagerAdapter viewPagerAdapter;
+    private Boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,10 @@ public class HomeActivity extends AppCompatActivity implements FootballPlayerTra
                 case 2:
                     bottomNavigation.getMenu().findItem(R.id.action_profile).setChecked(true);
                     break;
+
+                case 3:
+                    bottomNavigation.getMenu().findItem(R.id.action_menu).setChecked(true);
+                    break;
             }
             }
         });
@@ -65,6 +78,10 @@ public class HomeActivity extends AppCompatActivity implements FootballPlayerTra
                     case R.id.action_profile:
                         homeViewPager.setCurrentItem(2);
                         break;
+
+                    case R.id.action_menu:
+                        homeViewPager.setCurrentItem(3);
+                        break;
                 }
                 return true;
             }
@@ -76,10 +93,59 @@ public class HomeActivity extends AppCompatActivity implements FootballPlayerTra
         homeViewPager = (ViewPager2) findViewById(R.id.viewPagerHome);
     }
 
+    private void setExitFalse() {
+        Timer t = new Timer();
+        TimerTask task = new TimerTask() {
+            public void run() {
+                exit = false;
+            }
+        };
+        t.schedule(task, 2000);
+    }
+
     @Override
-    public void DataFootballPlayer(FootballPlayer footballPlayer) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            if(!exit) {
+                Toast.makeText(this, "Nhấn cái nữa để thoát", Toast.LENGTH_SHORT).show();
+                exit = true;
+                setExitFalse();
+            } else {
+                this.finishAffinity();
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void FootballPlayerDetail(FootballPlayer footballPlayer) {
         Intent intent = new Intent(HomeActivity.this, FootballPlayerDetail.class);
         intent.putExtra("duLieu", footballPlayer);
         startActivity(intent);
+    }
+
+    @Override
+    public void Logout() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Đăng xuất");
+        builder.setMessage("Bạn có muốn đăng xuất không");
+        builder.setIcon(R.drawable.img_avata);
+
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        
+        builder.show();
     }
 }

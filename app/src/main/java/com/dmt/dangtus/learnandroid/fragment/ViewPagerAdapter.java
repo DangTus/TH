@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.dmt.dangtus.learnandroid.HomeActivity;
+
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -24,6 +26,9 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 2:
                 return new ProfileFragment();
 
+            case 3:
+                return new MenuFragment();
+
             default:
                 return new HomeFragment();
         }
@@ -31,6 +36,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }
