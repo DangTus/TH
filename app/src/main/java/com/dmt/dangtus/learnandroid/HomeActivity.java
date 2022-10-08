@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
     private ViewPager2 homeViewPager;
     private ViewPagerAdapter viewPagerAdapter;
     private Boolean exit = false;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
         setContentView(R.layout.activity_home);
 
         anhXa();
+
+        sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
 
         viewPagerAdapter = new ViewPagerAdapter(this);
         homeViewPager.setAdapter(viewPagerAdapter);
@@ -134,6 +138,12 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("userName");
+                editor.remove("password");
+                editor.remove("remember");
+                editor.commit();
+
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -145,7 +155,7 @@ public class HomeActivity extends AppCompatActivity implements HomeActivityInter
 
             }
         });
-        
+
         builder.show();
     }
 }

@@ -3,7 +3,9 @@ package com.dmt.dangtus.learnandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Shader;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,10 +20,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edUserName, edPassword;
-    TextView txtSignUp;
-    Button btnLogin;
-    ImageButton imbEye;
+    private EditText edUserName, edPassword;
+    private TextView txtSignUp;
+    private Button btnLogin;
+    private ImageButton imbEye;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         anhXa();
+
+        sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        //lay gia tri
+        edUserName.setText(sharedPreferences.getString("userName", ""));
+        edPassword.setText(sharedPreferences.getString("password", ""));
 
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +49,20 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edUserName.getText().toString().trim().isEmpty() || edPassword.getText().toString().trim().isEmpty()) {
+                String userName = edUserName.getText().toString().trim();
+                String password = edPassword.getText().toString().trim();
+
+                if(userName.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ", Toast.LENGTH_SHORT).show();
-                } else if (!edUserName.getText().toString().trim().equals("2050531200316") || !edPassword.getText().toString().trim().equals("dangvanhoaitu")) {
+                } else if (!userName.equals("admin") || !password.equals("admin")) {
                     Toast.makeText(MainActivity.this, "Tài khoản hoặc mật khẩu của bạn không đúng. Vui lòng đăng nhập lại!", Toast.LENGTH_SHORT).show();
                 } else {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("userName", userName);
+                    editor.putString("password", password);
+                    editor.putBoolean("remember", true);
+                    editor.commit();
+
                     Intent intentLogin = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intentLogin);
                 }
