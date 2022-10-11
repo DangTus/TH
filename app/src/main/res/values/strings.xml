@@ -1,18 +1,3 @@
 <resources>
     <string name="app_name">Learn Android</string>
-
-    <string-array name="list_cauthu">
-        <item>img_bruno_fernandes</item>
-        <item>img_cristiano_ronaldo</item>
-        <item>img_de_gea</item>
-        <item>img_diogo_dalot</item>
-        <item>img_harry_maguire</item>
-        <item>img_jadon_sancho</item>
-        <item>img_luke_shaw</item>
-        <item>img_marcus_rashford</item>
-        <item>img_martinez</item>
-        <item>img_paul_pogba</item>
-        <item>img_scott_mc_tominay</item>
-        <item>img_varane</item>
-    </string-array>
 </resources>
