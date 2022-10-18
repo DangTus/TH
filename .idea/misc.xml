@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/bg_avata_row_user.xml" value="0.247" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/layout/row_user_vertical.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>
