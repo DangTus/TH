@@ -17,16 +17,27 @@ import java.util.List;
 public class UserApapter extends RecyclerView.Adapter<UserApapter.ViewHolder> {
 
     private List<User> userList;
+    private String direction;
 
-    public UserApapter(List<User> userList) {
+    public UserApapter(List<User> userList, String direction) {
         this.userList = userList;
+        this.direction = direction;
     }
 
     @NonNull
     @Override
     public UserApapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_user_vertical, parent, false);
-
+        View view;
+        switch (direction) {
+            case "doc":
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_user_vertical, parent, false);
+                break;
+            case "ngang":
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_user_horizontal, parent, false);
+                break;
+            default:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_user_vertical, parent, false);
+        }
         return new ViewHolder(view);
     }
 

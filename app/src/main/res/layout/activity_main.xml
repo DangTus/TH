@@ -11,9 +11,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Toolbar
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
             android:background="@color/colorPrimary">
 
             <TextView
@@ -22,16 +24,31 @@
                 android:text="ĐẶNG VĂN HOÀI TÚ - 2050531200316"
                 android:textColor="#fff"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_gravity="center"/>
-        </Toolbar>
+
+            <Switch
+                android:id="@+id/docNgangSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dọc"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:textColorHint="#fff"
+                android:theme="@style/Theme.MyTheme"/>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:background="#f8f8f8"/>
     </LinearLayout>
 
 </RelativeLayout>
