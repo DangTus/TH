@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/bg_item_listview.xml" value="0.247" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/bg_radius_15.xml" value="0.247" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_delete.xml" value="0.247" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/drawable/ic_edit.xml" value="0.247" />
         <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/layout/item_combobox.xml" value="0.24895833333333334" />
+        <entry key="..\:/TU/HOC TAP/122/Android/GIT/app/src/main/res/layout/item_computer.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>
